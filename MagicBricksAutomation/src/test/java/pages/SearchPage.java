@@ -19,28 +19,25 @@ public class SearchPage {
     @FindBy(css = ".mb-srp__card__photo__fig--heart") 
     private List<WebElement> shortlistIcons;
 
+    @FindBy(xpath="//div[contains(@class,'mb-srp__card')]")
+    List<WebElement> properties;
+
     public SearchPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    
-     
-    public void shortlistHouses(int count) {
-        for (int i = 0; i < count && i < shortlistIcons.size(); i++) {
-            try {
-                WebElement heart = shortlistIcons.get(i);
-                if (heart.isDisplayed()) {
-                    heart.click();
-                    System.out.println("Shortlisted house #" + (i + 1));
-                    // Brief sleep might be needed if the site has heavy JS overlays
-                    Thread.sleep(500); 
-                }
-            } catch (Exception e) {
-                System.out.println("Could not click heart icon at index " + i + ": " + e.getMessage());
-            }
-        }
+    public void shortlistFirstThree()
+    {
+
+    for(int i=0;i<3;i++)
+    {
+    properties.get(i).click();
     }
+
+    }
+     
+   
     
     public void scrollUntilPropertiesLoad()
     {
@@ -66,11 +63,8 @@ public class SearchPage {
     {
     break;
     }
-
     lastHeight = newHeight;
-
     }
-
     }
     
     public void scrollPage()
