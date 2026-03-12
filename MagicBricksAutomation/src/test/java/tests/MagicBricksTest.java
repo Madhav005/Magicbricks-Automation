@@ -8,19 +8,23 @@ import pages.SearchPage;
 
 public class MagicBricksTest extends BaseTest {
 
-@Test
-
-public void propertyShortlistTest(){
-	HomePage home = new HomePage(driver);
-
-	home.searchCity("Bangalore");
-	SearchPage searchPage = new SearchPage(driver);
-	//searchPage.scrollUntilPropertiesLoad();
-	searchPage.scrollPage();
-    
-	
-
-
-}
+    @Test
+    public void propertyShortlistTest() throws InterruptedException {
+        HomePage home = new HomePage(driver);
+        home.searchCity("Bangalore");
+        
+        SearchPage searchPage = new SearchPage(driver);
+        
+        // searchPage.scrollUntilPropertiesLoad();
+        searchPage.scrollPage();
+        searchPage.scrollToTop();
+        
+        
+        searchPage.shortlistFirstThree();
+        
+        searchPage.clickShortlistHeaderButton();
+        
+        searchPage.navigateToShortlistedProperties();
+    }
 
 }
