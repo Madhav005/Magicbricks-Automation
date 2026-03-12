@@ -23,18 +23,7 @@ WebElement compareButton;
 
 public void shortlistProperties(){
 
-for(int i=0;i<3;i++){
 
-propertyCards.get(i).click();
 
 }
-
-}
-
-public void openCompare(){
-
-compareButton.click();
-
-}
-
 }
