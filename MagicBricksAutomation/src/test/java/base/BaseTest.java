@@ -20,7 +20,7 @@ driver.get("https://www.magicbricks.com");
 @AfterMethod
 public void tearDown(){
 
-driver.quit();
+//driver.quit();
 
 }
 
