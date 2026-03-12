@@ -18,15 +18,11 @@ public class SearchPage {
     @FindBy(className = "mb-srp__card__sort--icon")
     private List<WebElement> shortlistHearts;
     
-    
     @FindBy(xpath = "//input[contains(@placeholder, 'Name')]") 
     private WebElement nameField;
-    
-
  
     @FindBy(className = "mb-header__main__shortlist__cta")
     private WebElement shortlistHeaderBtn;
-
    
     @FindBy(xpath = "//*[contains(text(), 'View Your Shortlisted Properties')]")
     private WebElement viewShortlistTooltipLink;
@@ -72,7 +68,7 @@ public class SearchPage {
             System.out.println("Waiting for manual login. Please complete the login in the browser...");
             
             // Create a longer wait specifically for manual human action (e.g., 90 seconds)
-            WebDriverWait manualWait = new WebDriverWait(driver, Duration.ofSeconds(50));
+            WebDriverWait manualWait = new WebDriverWait(driver, Duration.ofSeconds(90));
             
             // 1. Wait briefly for the popup to appear so we know it triggered
             manualWait.until(ExpectedConditions.visibilityOf(nameField));
@@ -92,17 +88,7 @@ public class SearchPage {
 
     // --- Scroll Methods ---
     
-    public void scrollUntilPropertiesLoad() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        long lastHeight = (long) js.executeScript("return document.body.scrollHeight");
-        while(true) {
-            js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
-            try { Thread.sleep(2000); } catch (InterruptedException e) {}
-            long newHeight = (long) js.executeScript("return document.body.scrollHeight");
-            if(newHeight == lastHeight) break;
-            lastHeight = newHeight;
-        }
-    }
+    
 
     public void scrollPage() {
         JavascriptExecutor js = (JavascriptExecutor) driver;

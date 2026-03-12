@@ -46,6 +46,8 @@ cityInput.sendKeys(city);
 wait.until(ExpectedConditions.elementToBeClickable(searchButton));
 searchButton.click();
 
+
+
 }
 
 }
