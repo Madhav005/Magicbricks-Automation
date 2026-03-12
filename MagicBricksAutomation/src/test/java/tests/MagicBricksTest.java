@@ -13,7 +13,7 @@ public void propertyShortlistTest(){
 	HomePage home = new HomePage(driver);
 
 	home.searchCity("Bangalore");
-
+    
 	
 
 
